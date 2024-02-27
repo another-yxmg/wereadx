@@ -1,7 +1,7 @@
 import { fs } from "./deps.ts";
 import { routeApi } from "./router.ts";
-import { runReadTask } from "./cron/read";
-import { runExchangeTask } from "./cron/exchange.js";
+import { runReadTask } from "./cron/read.ts";
+import { runExchangeTask } from "./cron/exchange.ts";
 
 const pattern = new URLPattern({ pathname: "/(api|cron)/:name+" });
 
