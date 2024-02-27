@@ -11,7 +11,7 @@ import type {Credential} from "../kv/credential.ts";
  * 由外部 cron 触发(Cloudflare Worker)
  * todo: 等 deno 原生支持 cron 后，可以切换为 deno cron
  */
-export async function runExchangeTask(_: Request) {
+export async function runExchangeTask(_?: Request) {
     console.debug('触发 cron::runExchangeTask 任务')
 
     // 从配置中读取有哪些用户需要兑换

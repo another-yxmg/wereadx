@@ -5,14 +5,14 @@ import { runExchangeTask } from "./cron/exchange.ts";
 
 const pattern = new URLPattern({ pathname: "/(api|cron)/:name+" });
 
-// 定时任务-自动阅读
-Deno.cron("runReadTask", "0 0/30 * * * ?", async () => {
+// 定时任务-自动阅读 - 每 30 分钟
+Deno.cron("runReadTask", "*/30 * * * *", async () => {
   console.log("start runReadTask");
   await runReadTask();
 });
 
-// 定时任务-兑换体验卡
-Deno.cron("runExchangeTask", "0 0 12 ? * FRI", async () => {
+// 定时任务-兑换体验卡 - 周一23:59
+Deno.cron("runExchangeTask", "59 23 * * 1", async () => {
   console.log("start runExchangeTask");
   await runExchangeTask();
 })
