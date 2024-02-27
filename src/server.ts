@@ -6,13 +6,13 @@ import { runExchangeTask } from "./cron/exchange.ts";
 const pattern = new URLPattern({ pathname: "/(api|cron)/:name+" });
 
 // 定时任务-自动阅读
-Deno.cron("runReadTask", "*/30 * * * *", async () => {
+Deno.cron("runReadTask", "0 0/30 * * * ?", async () => {
   console.log("start runReadTask");
   await runReadTask();
 });
 
 // 定时任务-兑换体验卡
-Deno.cron("runExchangeTask", "30 23 * * 0", async () => {
+Deno.cron("runExchangeTask", "0 0 12 ? * FRI", async () => {
   console.log("start runExchangeTask");
   await runExchangeTask();
 })
