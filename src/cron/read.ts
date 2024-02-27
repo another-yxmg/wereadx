@@ -13,7 +13,7 @@ import {web_login_renewal} from "../apis/web/login.ts";
  * 执行自动阅读任务
  * 由外部的 cron 触发，每 **30分钟** 触发一次
  */
-export async function runReadTask(_: Request) {
+export async function runReadTask(_?: Request) {
     console.debug('%c触发 cron::runReadTask 任务', 'color: green')
     const start = Date.now()
 
